@@ -75,4 +75,71 @@ function Employees() {
         appStart();
     });
 };
+
+function addDept() {
+    inquirer
+        .prompt([
+            {
+                name: "newDept",
+                type: "input",
+                message: "What is the name of the Department you would like to add?",
+            },
+        ])
+        .then((res) => {
+            const query = {
+                dept_name: res.newDept,
+            };
+            db.query("INSERT INTO department SET ?", query, (err) => {
+                if (err) throw err;
+                appStart();
+            })
+        });
+};
+
+function addEmp() {
+    inquirer
+        .prompt([
+            {
+                name: "first",
+                type: "input",
+                message: "First Name?",
+            },
+            {
+                name: "last",
+                type: "input",
+                message: "Last Name?",
+            },
+            {
+                name: "role",
+                type: "list",
+                message: "What is the employee's role?",
+                choices: ["Sales Lead", "Salesperson", "Lead Engineer", "Software Engineer", "Account Manager", "Accountant", "Legal Team Lead", "Lawyer"],
+            },
+            {
+                name: "manager",
+                type: "list",
+                message: "Who is the employee's manager?",
+                choices: ["John Doe", "Mike Chan", "Ashley Rodriguez", "Kevin Tupik", "Kunal Singh", "Malia Brown", "Sarah Lourd", "Tom Allen"],
+            },
+        ])
+        .then ((res) => {
+            const newEmployee = {
+                first_name: res.first,
+                last_name: res.last,
+                manager_id: manager_id,
+                role_id: role_id,
+            };
+
+            db.query("INSERT INTO employee SET ?", newEmployee, (err) => {
+                if (err) throw err;
+                appStart();
+            });
+        });
+};
+
+function updateRole() {
+
+    
+
+}
 appStart();
