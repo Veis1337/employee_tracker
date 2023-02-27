@@ -12,7 +12,7 @@ SOURCE the db files, then node the index.js file.
 ![](./Media/Screenshot%202023-02-27%20113119.png)
 
 Demonstration Video --
-![](./Media/Employee_Tracker.mp4.mp4)
+![VideoSubmission](./Media/Employee_Tracker.mp4.mp4)
 
 
 ## Credits
